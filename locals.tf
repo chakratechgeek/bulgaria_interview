@@ -6,7 +6,7 @@ locals {
       key_name                    = "interview-ssh-key"
       vpc_security_group_ids      = [aws_security_group.db_sg.id]
       subnet_id                   = aws_subnet.inter_db_subnet_prim.id
-      associate_public_ip_address = true
+      associate_public_ip_address = false
       root_block_device = {
         volume_size = 50 # Specify the desired storage size in GB
         encrypted   = true

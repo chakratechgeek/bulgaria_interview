@@ -3,17 +3,32 @@ resource "aws_security_group" "db_sg" {
   description = var.db_sg_description
   vpc_id      = aws_vpc.inter_vpc.id
 
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
   tags = {
     Name = var.db_sg_tag_name
   }
 }
 
-resource "aws_security_group_rule" "allow_app_to_db_5433" {
+resource "aws_security_group_rule" "allow_app_to_db_5432" {
   type                     = "ingress"
-  from_port                = 5433
-  to_port                  = 5433
+  from_port                = 5432
+  to_port                  = 5432
   protocol                 = "tcp"
   source_security_group_id = aws_security_group.app_sg.id
+  security_group_id        = aws_security_group.db_sg.id
+}
+
+resource "aws_security_group_rule" "allow_db_to_db_5432" {
+  type                     = "ingress"
+  from_port                = 5432
+  to_port                  = 5432
+  protocol                 = "tcp"
+  source_security_group_id = aws_security_group.db_sg.id
   security_group_id        = aws_security_group.db_sg.id
 }
 
