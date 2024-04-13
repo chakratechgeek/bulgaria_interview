@@ -1,0 +1,9 @@
+*.pem
+*.ppk
+*.pub
+*.hcl
+*.backup
+*.bkp
+*.info
+.terraform
+*state*
