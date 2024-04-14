@@ -32,6 +32,25 @@ resource "aws_security_group_rule" "allow_db_to_db_5432" {
   security_group_id        = aws_security_group.db_sg.id
 }
 
+resource "aws_security_group_rule" "allow_db_to_db_pgpool" {
+  type                     = "ingress"
+  from_port                = 9999
+  to_port                  = 9999
+  protocol                 = "tcp"
+  source_security_group_id = aws_security_group.db_sg.id
+  security_group_id        = aws_security_group.db_sg.id
+}
+
+resource "aws_security_group_rule" "allow_db_to_db_ssh" {
+  type                     = "ingress"
+  from_port                = 22
+  to_port                  = 22
+  protocol                 = "tcp"
+  source_security_group_id = aws_security_group.db_sg.id
+  security_group_id        = aws_security_group.db_sg.id
+}
+
+
 resource "aws_security_group_rule" "allow_app_to_db_22" {
   type                     = "ingress"
   from_port                = 22
@@ -71,7 +90,7 @@ resource "aws_security_group_rule" "allow_https" {
   security_group_id = aws_security_group.app_sg.id
 }
 
-resource "aws_security_group_rule" "allow_https" {
+resource "aws_security_group_rule" "allow_cache" {
   type                     = "ingress"
   from_port                = 6379
   to_port                  = 6379
