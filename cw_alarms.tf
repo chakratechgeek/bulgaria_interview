@@ -43,8 +43,8 @@ resource "aws_cloudwatch_metric_alarm" "status_check_failed" {
   metric_name         = each.value.metric_name
   namespace           = "AWS/EC2"
   period              = "60"
-  statistic           = "SampleCount"
-  threshold           = each.value.threshold
+  statistic           = "Maximum"
+  threshold           = 1
   alarm_description   = "Terraform deploy:This metric checks for status check failures"
   alarm_actions       = []
   dimensions = {
