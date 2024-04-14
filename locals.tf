@@ -38,6 +38,19 @@ locals {
         encrypted   = true
         kms_key_id  = aws_kms_key.inter_kms_ec2_db.key_id # Use the KMS key for encryption
       }
+    },
+    pgsql_pgpool = {
+      ami                         = "ami-0f007bf1d5c770c6e" # Amazon Linux 2023 AARCH64
+      instance_type               = "t3.small"
+      key_name                    = "interview-ssh-key"
+      vpc_security_group_ids      = [aws_security_group.db_sg.id]
+      subnet_id                   = aws_subnet.inter_db_subnet_prim.id
+      associate_public_ip_address = false
+      root_block_device = {
+        volume_size = 50 # Specify the desired storage size in GB
+        encrypted   = true
+        kms_key_id  = aws_kms_key.inter_kms_ec2_db.key_id # Use the KMS key for encryption
+      }
     }
   }
 
