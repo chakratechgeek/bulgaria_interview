@@ -18,8 +18,4 @@ resource "aws_elasticache_replication_group" "example" {
   num_cache_clusters         = 2
 
 
-  # Optional: Add a description using tags
-  tags = {
-    Description = "Example replication group"
-  }
 }
