@@ -15,6 +15,13 @@ resource "aws_instance" "db_instance" {
     kms_key_id  = each.value.root_block_device.kms_key_id
   }
 
+  lifecycle {
+     ignore_changes = [
+       root_block_device[0].kms_key_id,
+       # Add other attributes here as needed
+     ]
+   }
+
   tags = {
     Name = each.key
   }
