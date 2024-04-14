@@ -77,7 +77,7 @@ resource "aws_security_group_rule" "allow_https" {
   to_port                  = 6379
   protocol                 = "tcp"
   source_security_group_id = aws_security_group.app_sg.id
-  security_group_id        = aws_security_group.app_sg.id
+  security_group_id        = aws_security_group.db_sg.id
 }
 
 resource "aws_security_group_rule" "allow_app_outbound_ssh" {
