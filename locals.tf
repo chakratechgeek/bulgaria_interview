@@ -84,5 +84,5 @@ locals {
         threshold   = 1
       }
     }
- }
+  }
 }
