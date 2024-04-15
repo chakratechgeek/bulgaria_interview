@@ -7,4 +7,4 @@
 *.info
 .terraform
 *state*
-metric_lambda
+psycopg2*

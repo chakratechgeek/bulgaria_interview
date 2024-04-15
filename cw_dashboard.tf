@@ -13,7 +13,7 @@ resource "aws_cloudwatch_dashboard" "example" {
           metrics = [
             ["AWS/EC2", "CPUUtilization", "InstanceId", aws_instance.db_instance["pgsql_db_primary"].id],
             ["AWS/EC2", "CPUUtilization", "InstanceId", aws_instance.db_instance["pgsql_db_standby"].id],
-            ["AWS/EC2", "CPUUtilization", "InstanceId", aws_instance.db_instance["app_ec2"].id],
+            ["AWS/EC2", "CPUUtilization", "InstanceId", aws_instance.db_instance["terminal_server"].id],
 
           ],
           view    = "timeSeries",
@@ -32,7 +32,7 @@ resource "aws_cloudwatch_dashboard" "example" {
           metrics = [
             ["AWS/EC2", "NetworkPacketsIn", "InstanceId", aws_instance.db_instance["pgsql_db_primary"].id],
             ["AWS/EC2", "NetworkPacketsIn", "InstanceId", aws_instance.db_instance["pgsql_db_standby"].id],
-            ["AWS/EC2", "NetworkPacketsIn", "InstanceId", aws_instance.db_instance["app_ec2"].id],
+            ["AWS/EC2", "NetworkPacketsIn", "InstanceId", aws_instance.db_instance["terminal_server"].id],
 
           ],
           view    = "timeSeries",
@@ -51,7 +51,7 @@ resource "aws_cloudwatch_dashboard" "example" {
           metrics = [
             ["AWS/EC2", "StatusCheckFailed", "InstanceId", aws_instance.db_instance["pgsql_db_primary"].id],
             ["AWS/EC2", "StatusCheckFailed", "InstanceId", aws_instance.db_instance["pgsql_db_standby"].id],
-            ["AWS/EC2", "StatusCheckFailed", "InstanceId", aws_instance.db_instance["app_ec2"].id],
+            ["AWS/EC2", "StatusCheckFailed", "InstanceId", aws_instance.db_instance["terminal_server"].id],
 
           ],
           view    = "timeSeries",

@@ -26,7 +26,7 @@ locals {
         kms_key_id  = aws_kms_key.inter_kms_ec2_db.key_id # Use the KMS key for encryption
       }
     },
-    app_ec2 = {
+    terminal_server = {
       ami                         = "ami-0f007bf1d5c770c6e" # Amazon Linux 2023 AARCH64
       instance_type               = "t3.small"
       key_name                    = "interview-ssh-key"
@@ -83,7 +83,7 @@ locals {
         threshold   = 1
       }
     },
-    app_ec2 = {
+    terminal_server = {
       cpu_utilization = {
         metric_name = "CPUUtilization"
         threshold   = 70
