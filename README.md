@@ -57,16 +57,16 @@ Additional notes:
 - All compute resources i.e. EC2, Lambda.. are secured with **Security Groups** with only ports and sources to be allowed to access
 - To protect data at rest and in transit, KMS service is used 
 - Logging is implemented and protected for all i.e. Lambda, EC2 and application using appropriate services (X-Ray, Cloud watch Log groups) 
-## Reliability
+### Reliability
 - PGPOOL2 is used for PostgreSQL databases for automatic failover
 - Scalability is achieved with this feature
 - Used serverless AWS services for better reliability 
-## Performance Efficiency
+### Performance Efficiency
 - Used serverless architecture where ever applicable i.e. Lambda
 - DB performance is BAU 
 - Application performance is depends on the type of application we use 
 - Used ElasticCache for application performance improvement 
-## Cost Optimization
+### Cost Optimization
 - I used on demand EC2 machines for this demo, but we could consider the **Spot** instance for non prod workload 
 - For a long term workload, we can purchase the reservation for cost benefits 
 - Stop/Start the EC2 instances/database for non prod instances if business permits 
