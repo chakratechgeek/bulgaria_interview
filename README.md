@@ -28,6 +28,7 @@ Additional notes:
 ![Alt Text](images/assessment.png)
 
 ## Architecture Principle 
+
 - Use AWS well architected framework 
 - Use Terraform for deployment 
 - Use Python programming language for application and custom metric creation 
