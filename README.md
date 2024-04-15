@@ -27,3 +27,22 @@ Additional notes:
 ## Architecture Diagram
 ![Alt Text](images/assessment.png)
 
+## Architecture Priciple 
+- Use AWS well architected framework  
+- Use Terraform for deployment 
+- Use Python programming language for application and custom metric creation 
+- Not to use RDS 
+- Use Postgres15 
+
+## Details of Implementation 
+- Isolate complete applciation using VPC/subnet 
+- Postgres on EC2 for both primary and standby 
+- Installed PGPOOL2 for database load balancer , failover and failback 
+- AWS lambda is used for custom SQL based metric aalrm and display in dahsboard 
+- CloudWatch Dashboard is used as observability tool 
+- CloudWatch Metrics samples are used to showcase the monitoring
+- Applciation extensive observability used AWS X-Raay service 
+- A sample Python application is used make use of ElasticCache 
+
+
+
